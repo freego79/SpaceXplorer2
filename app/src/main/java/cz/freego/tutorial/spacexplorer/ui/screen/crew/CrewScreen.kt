@@ -33,7 +33,6 @@ fun CrewScreen(viewModel: CrewViewModel = hiltViewModel()) {
                     //item { Text("No more data") }
                 }
                 loadState.refresh is androidx.paging.LoadState.Loading -> {
-                    //item { CircularProgressIndicator() }
                     item {
                         RocketProgressListItem()
                     }

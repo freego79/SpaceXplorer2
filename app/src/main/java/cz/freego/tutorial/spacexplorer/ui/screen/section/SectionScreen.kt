@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import cz.freego.tutorial.spacexplorer.ui.Screen
 
+@Deprecated("Testing Screen only - replace with real Screen")
 @Composable
 fun SectionScreen(navController: NavHostController, text: String, sectionId: Int) {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
