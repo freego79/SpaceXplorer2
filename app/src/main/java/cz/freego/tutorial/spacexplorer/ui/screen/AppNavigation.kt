@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import cz.freego.tutorial.spacexplorer.ui.Screen
 import cz.freego.tutorial.spacexplorer.ui.screen.company.CompanyScreen
+import cz.freego.tutorial.spacexplorer.ui.screen.crew.CrewScreen
 import cz.freego.tutorial.spacexplorer.ui.screen.detail.DetailScreen
 import cz.freego.tutorial.spacexplorer.ui.screen.home.HomeScreen
 import cz.freego.tutorial.spacexplorer.ui.screen.section.SectionScreen
@@ -24,7 +25,7 @@ fun AppNavigation() {
             HomeScreen(bottomNavController) {
                 NavHost(bottomNavController, startDestination = Screen.SectionOverview.route) {
                     composable(Screen.SectionOverview.route) { SectionScreen(bottomNavController, "Přehled", 1) }
-                    composable(Screen.SectionCrews.route) { SectionScreen(bottomNavController, "Posádky", 2) }
+                    composable(Screen.SectionCrews.route) { CrewScreen() }
                     composable(Screen.SectionUnits.route) { SectionScreen(bottomNavController, "Zařízení", 3) }
                     composable(Screen.SectionLaunches.route) { SectionScreen(bottomNavController, "Lety", 4) }
                     composable(Screen.SectionCompany.route) { CompanyScreen() }

@@ -49,12 +49,14 @@ dependencies {
 
     implementation(libs.lottie.compose)
 
-
+    // Paginace pro Android
+    implementation("androidx.paging:paging-runtime:3.1.0")
 
     // Retrofit pro HTTP komunikaci
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
-
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.2")
+    
     // Moshi pro JSON serializaci
     implementation("com.squareup.moshi:moshi:1.14.0")
     implementation("com.squareup.moshi:moshi-kotlin:1.14.0")

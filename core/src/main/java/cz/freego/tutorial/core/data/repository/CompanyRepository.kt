@@ -1,5 +1,6 @@
 package cz.freego.tutorial.core.data.repository
 
+import cz.freego.tutorial.core.Constants
 import cz.freego.tutorial.core.data.api.SpaceXApi
 import cz.freego.tutorial.core.data.model.CompanyInfoDto
 import cz.freego.tutorial.core.utils.RequestState
@@ -12,7 +13,7 @@ class CompanyRepository(private val api: SpaceXApi) {
         return try {
             withContext(Dispatchers.IO) {
                 val response = api.getCompanyInfo()
-                if (Random.nextBoolean()) {
+                if (Constants.SIMULATED_ERRORS && Random.nextBoolean()) {
                     throw Exception("Uměle simulovaná chyba!")
                 }
                 RequestState.Success(response)

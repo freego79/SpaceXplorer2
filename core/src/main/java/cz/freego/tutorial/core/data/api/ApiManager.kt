@@ -1,21 +1,48 @@
 package cz.freego.tutorial.core.data.api
 
+import android.content.Context
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import cz.freego.tutorial.core.Constants
+import dagger.hilt.android.qualifiers.ApplicationContext
+import okhttp3.Cache
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Inject
+import java.io.File
 
-class ApiManager @Inject constructor() {
-    private val BASE_URL = "https://api.spacexdata.com/v4/"
+class ApiManager @Inject constructor(
+    @ApplicationContext private val context: Context // Přidání kontextu
+) {
+    // Nastavení cache
+    private val cacheDir = File(context.cacheDir, "http_cache")
+    private val cacheSize = 10L * 1024L * 1024L // 10 MB cache
+    private val cache = Cache(cacheDir, cacheSize)
 
     private val retrofit by lazy {
         val moshi = Moshi.Builder()
             .add(KotlinJsonAdapterFactory())  // Přidáme KotlinJsonAdapter pro Moshi
             .build()
 
+        // Vytvoření OkHttp klienta s cache
+        val okHttpClient = OkHttpClient.Builder()
+            .cache(cache)  // Použití cache
+            .addInterceptor(HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BODY // Logování HTTP požadavků
+            })
+            .addInterceptor { chain ->
+                val request = chain.request().newBuilder()
+                    .header("Cache-Control", "public, max-age=60") // Cache pro 60 sekund
+                    .build()
+                chain.proceed(request)
+            }
+            .build()
+
         Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(Constants.SPACEX_API_BASE_URL)
+            .client(okHttpClient)  // Přidání OkHttp klienta s cache
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
     }

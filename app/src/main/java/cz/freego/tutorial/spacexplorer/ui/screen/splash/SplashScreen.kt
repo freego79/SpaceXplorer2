@@ -9,12 +9,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import cz.freego.tutorial.core.design.component.animation.PersistentLottieAnimation
+import cz.freego.tutorial.core.presentation.SplashViewModel
 import cz.freego.tutorial.spacexplorer.ui.Screen
 
 @Composable
-fun SplashScreen(navController: NavHostController) {
+fun SplashScreen(
+    navController: NavHostController,
+    viewModel: SplashViewModel = hiltViewModel(), // unused - přesto se zavolá init ve ViewModelu
+) {
     Box(
         modifier = Modifier
             .fillMaxSize()
