@@ -9,5 +9,7 @@ object Constants {
     const val DRAGON_PAGING_LIMIT: Int = 10
     const val CAPSULE_PAGING_LIMIT: Int = 10
     const val SHIP_PAGING_LIMIT: Int = 10
+    const val LAUNCHPAD_PAGING_LIMIT: Int = 10
+    const val LANDPAD_PAGING_LIMIT: Int = 10
 
 }

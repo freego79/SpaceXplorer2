@@ -19,3 +19,7 @@ data class Mass(
     val kg: Int?,
     val lb: Int?
 )
+
+data class Images(
+    val large: List<String>?
+)

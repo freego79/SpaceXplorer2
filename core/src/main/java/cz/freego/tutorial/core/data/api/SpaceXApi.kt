@@ -7,6 +7,10 @@ import cz.freego.tutorial.core.data.model.CrewQueryRequest
 import cz.freego.tutorial.core.data.model.CrewResponse
 import cz.freego.tutorial.core.data.model.DragonQueryRequest
 import cz.freego.tutorial.core.data.model.DragonResponse
+import cz.freego.tutorial.core.data.model.LandpadQueryRequest
+import cz.freego.tutorial.core.data.model.LandpadResponse
+import cz.freego.tutorial.core.data.model.LaunchpadQueryRequest
+import cz.freego.tutorial.core.data.model.LaunchpadResponse
 import cz.freego.tutorial.core.data.model.RocketQueryRequest
 import cz.freego.tutorial.core.data.model.RocketResponse
 import cz.freego.tutorial.core.data.model.ShipQueryRequest
@@ -33,5 +37,11 @@ interface SpaceXApi {
 
     @POST("ships/query")
     suspend fun queryShips(@Body request: ShipQueryRequest): ShipResponse
+
+    @POST("launchpads/query")
+    suspend fun queryLaunchpads(@Body request: LaunchpadQueryRequest): LaunchpadResponse
+
+    @POST("landpads/query")
+    suspend fun queryLandpads(@Body request: LandpadQueryRequest): LandpadResponse
 
 }

@@ -7,12 +7,16 @@ import cz.freego.tutorial.core.data.repository.CapsuleRepository
 import cz.freego.tutorial.core.data.repository.CompanyRepository
 import cz.freego.tutorial.core.data.repository.CrewRepository
 import cz.freego.tutorial.core.data.repository.DragonRepository
+import cz.freego.tutorial.core.data.repository.LandpadRepository
+import cz.freego.tutorial.core.data.repository.LaunchpadRepository
 import cz.freego.tutorial.core.data.repository.RocketRepository
 import cz.freego.tutorial.core.data.repository.ShipRepository
 import cz.freego.tutorial.core.domain.GetCapsuleUseCase
 import cz.freego.tutorial.core.domain.GetCompanyUseCase
 import cz.freego.tutorial.core.domain.GetCrewUseCase
 import cz.freego.tutorial.core.domain.GetDragonUseCase
+import cz.freego.tutorial.core.domain.GetLandpadUseCase
+import cz.freego.tutorial.core.domain.GetLaunchpadUseCase
 import cz.freego.tutorial.core.domain.GetRocketUseCase
 import cz.freego.tutorial.core.domain.GetShipUseCase
 import dagger.Module
@@ -107,6 +111,32 @@ object CoreModule {
     @Provides
     fun provideGetShipUseCase(repository: ShipRepository): GetShipUseCase {
         return GetShipUseCase(repository)
+    }
+
+    // --- Launchpad Repository + UseCase ---
+
+    @Provides
+    @Singleton
+    fun provideLaunchpadRepository(api: SpaceXApi): LaunchpadRepository {
+        return LaunchpadRepository(api)
+    }
+
+    @Provides
+    fun provideGetLaunchpadUseCase(repository: LaunchpadRepository): GetLaunchpadUseCase {
+        return GetLaunchpadUseCase(repository)
+    }
+
+    // --- Landpad Repository + UseCase ---
+
+    @Provides
+    @Singleton
+    fun provideLandpadRepository(api: SpaceXApi): LandpadRepository {
+        return LandpadRepository(api)
+    }
+
+    @Provides
+    fun provideGetLandpadUseCase(repository: LandpadRepository): GetLandpadUseCase {
+        return GetLandpadUseCase(repository)
     }
 
 }
