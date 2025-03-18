@@ -2,9 +2,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-
-    //id("com.android.application")
-    //id("org.jetbrains.kotlin.android") // Toto přidej jen tady
     id("com.google.dagger.hilt.android") // Pro Hilt
     kotlin("kapt") // Nutné pro Hilt kompilátor
 }
@@ -67,14 +64,14 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     // Paging
-    implementation("androidx.paging:paging-compose:3.3.6")  // nebo poslední verze
+    implementation(libs.androidx.paging.compose)  // nebo poslední verze
 
     // Coil - pro načítání obrázků
-    implementation("io.coil-kt:coil-compose:2.1.0")  // nebo poslední verze
+    implementation(libs.coil.compose)  // nebo poslední verze
 
     // Hilt
-    implementation("com.google.dagger:hilt-android:2.48")
-    kapt("com.google.dagger:hilt-compiler:2.48")
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
     // Hilt pro ViewModel v Jetpack Compose
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+    implementation(libs.androidx.hilt.navigation.compose)
 }

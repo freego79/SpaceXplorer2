@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-
     kotlin("kapt") // Nutné pro Hilt kompilátor
 }
 
@@ -50,20 +49,20 @@ dependencies {
     implementation(libs.lottie.compose)
 
     // Paginace pro Android
-    implementation("androidx.paging:paging-runtime:3.1.0")
+    implementation(libs.androidx.paging.runtime)
 
     // Retrofit pro HTTP komunikaci
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.9.2")
-    
+    implementation(libs.retrofit)
+    implementation(libs.converter.moshi)
+    implementation(libs.logging.interceptor)
+
     // Moshi pro JSON serializaci
-    implementation("com.squareup.moshi:moshi:1.14.0")
-    implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
+    implementation(libs.moshi)
+    implementation(libs.moshi.kotlin)
 
     // Dependency Injection - Hilt
-    implementation("com.google.dagger:hilt-android:2.48")
-    kapt("com.google.dagger:hilt-compiler:2.48")
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 
 
     implementation(libs.androidx.core.ktx)
