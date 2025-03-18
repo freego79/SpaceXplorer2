@@ -6,5 +6,8 @@ object Constants {
     const val SIMULATED_ERRORS: Boolean = false // pro testování error state
     const val CREW_PAGING_LIMIT: Int = 10
     const val ROCKET_PAGING_LIMIT: Int = 10
+    const val DRAGON_PAGING_LIMIT: Int = 10
+    const val CAPSULE_PAGING_LIMIT: Int = 10
+    const val SHIP_PAGING_LIMIT: Int = 10
 
 }

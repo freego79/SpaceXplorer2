@@ -12,7 +12,7 @@ class CompanyRepository(private val api: SpaceXApi) {
     suspend fun getCompanyInfo(): RequestState<CompanyInfoDto> {
         return try {
             withContext(Dispatchers.IO) {
-                val response = api.getCompanyInfo()
+                val response = api.getCompany()
                 if (Constants.SIMULATED_ERRORS && Random.nextBoolean()) {
                     throw Exception("Uměle simulovaná chyba!")
                 }

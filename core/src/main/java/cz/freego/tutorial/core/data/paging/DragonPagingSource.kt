@@ -4,22 +4,22 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import cz.freego.tutorial.core.Constants
 import cz.freego.tutorial.core.data.api.SpaceXApi
-import cz.freego.tutorial.core.data.model.RocketDto
-import cz.freego.tutorial.core.data.model.RocketQueryOptions
-import cz.freego.tutorial.core.data.model.RocketQueryRequest
+import cz.freego.tutorial.core.data.model.DragonDto
+import cz.freego.tutorial.core.data.model.DragonQueryOptions
+import cz.freego.tutorial.core.data.model.DragonQueryRequest
 import javax.inject.Inject
 
-class RocketPagingSource @Inject constructor(
+class DragonPagingSource @Inject constructor(
     private val api: SpaceXApi
-) : PagingSource<Int, RocketDto>() {
+) : PagingSource<Int, DragonDto>() {
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, RocketDto> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, DragonDto> {
         return try {
             val page = params.key ?: 1
-            val response = api.queryRockets(
-                RocketQueryRequest(
-                    options = RocketQueryOptions(
-                        limit = Constants.ROCKET_PAGING_LIMIT,
+            val response = api.queryDragons(
+                DragonQueryRequest(
+                    options = DragonQueryOptions(
+                        limit = Constants.DRAGON_PAGING_LIMIT,
                         page = page,
                     )
                 )
@@ -35,7 +35,7 @@ class RocketPagingSource @Inject constructor(
         }
     }
 
-    override fun getRefreshKey(state: PagingState<Int, RocketDto>): Int? {
+    override fun getRefreshKey(state: PagingState<Int, DragonDto>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             state.closestPageToPosition(anchorPosition)?.prevKey?.plus(1)
                 ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(1)

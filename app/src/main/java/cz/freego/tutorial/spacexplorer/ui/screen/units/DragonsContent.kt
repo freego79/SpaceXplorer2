@@ -9,24 +9,26 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
-import cz.freego.tutorial.core.data.model.RocketDto
+import cz.freego.tutorial.core.data.model.DragonDto
 import cz.freego.tutorial.core.design.compose.handler.PagingStateHandler
-import cz.freego.tutorial.core.presentation.RocketViewModel
+import cz.freego.tutorial.core.presentation.DragonViewModel
 
 @Composable
-fun UnitsScreen(viewModel: RocketViewModel = hiltViewModel()) {
-    val rockets: LazyPagingItems<RocketDto> = viewModel.rockets.collectAsLazyPagingItems()
+fun DragonsContent(viewModel: DragonViewModel = hiltViewModel()) {
+    val dragons: LazyPagingItems<DragonDto> = viewModel.dragons.collectAsLazyPagingItems()
 
-    PagingStateHandler<RocketDto>(
+    PagingStateHandler<DragonDto>(
         lazyType = "column",
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp),
-        loadState = rockets.loadState,
-        itemCount = rockets.itemCount
+        loadState = dragons.loadState,
+        itemCount = dragons.itemCount
     ) {
-        items(rockets.itemCount) { index ->
-            rockets[index]?.let { rocket ->
-                Text(text = rocket.name ?: "")
+        item { Text("DRAGONS_CONTENT") }
+
+        items(dragons.itemCount) { index ->
+            dragons[index]?.let { dragon ->
+                Text(text = dragon.name ?: "")
             }
         }
     }
