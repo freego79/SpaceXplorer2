@@ -14,8 +14,8 @@ import androidx.compose.ui.unit.dp
 import cz.freego.tutorial.core.presentation.CompanyViewModel
 import cz.freego.tutorial.core.utils.RequestState
 import androidx.hilt.navigation.compose.hiltViewModel
-import cz.freego.tutorial.core.design.component.layout.DefaultErrorContent
-import cz.freego.tutorial.core.design.component.layout.LoadingLayout
+import cz.freego.tutorial.core.design.compose.layout.DefaultErrorContent
+import cz.freego.tutorial.core.design.compose.layout.LoadingLayout
 
 @Composable
 fun CompanyScreen(

@@ -14,6 +14,7 @@ import cz.freego.tutorial.spacexplorer.ui.screen.home.HomeScreen
 import cz.freego.tutorial.spacexplorer.ui.screen.overview.OverviewScreen
 import cz.freego.tutorial.spacexplorer.ui.screen.section.SectionScreen
 import cz.freego.tutorial.spacexplorer.ui.screen.splash.SplashScreen
+import cz.freego.tutorial.spacexplorer.ui.screen.units.UnitsScreen
 
 @Composable
 fun AppNavigation() {
@@ -27,7 +28,7 @@ fun AppNavigation() {
                 NavHost(bottomNavController, startDestination = Screen.SectionOverview.route) {
                     composable(Screen.SectionOverview.route) { OverviewScreen(bottomNavController) }
                     composable(Screen.SectionCrews.route) { CrewScreen() }
-                    composable(Screen.SectionUnits.route) { SectionScreen(bottomNavController, "Zařízení", 3) }
+                    composable(Screen.SectionUnits.route) { UnitsScreen() }
                     composable(Screen.SectionLaunches.route) { SectionScreen(bottomNavController, "Lety", 4) }
                     composable(Screen.SectionCompany.route) { CompanyScreen() }
                     composable(

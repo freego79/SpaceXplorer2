@@ -1,4 +1,4 @@
-package cz.freego.tutorial.core.design.component.item
+package cz.freego.tutorial.core.design.compose.item
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -10,7 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import cz.freego.tutorial.core.design.component.animation.PersistentLottieAnimation
+import cz.freego.tutorial.core.design.compose.animation.PersistentLottieAnimation
 import cz.freego.tutorial.core.design.theme.phone.SpaceXplorerTheme
 
 @Composable

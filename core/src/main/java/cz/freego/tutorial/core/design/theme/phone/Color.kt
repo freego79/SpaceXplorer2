@@ -6,8 +6,8 @@ object ColorsLight {
     val background = Color(0xFFD0D0F5)
     val surface = background
     val primary = Color(0xFF202060)
-    val secondary = Color(0xFF8080A0)
-    val tertiary = Color(0xFFEFB8C8)
+    val secondary = Color(0xFF303060)
+    val tertiary = Color(0x88505070)
     val onPrimary = Color(0xFFFFFFFF)
     //val onSecondary = Color(0xFFFF0000)
     //val onTertiary = Color(0xFFFF0000)
@@ -21,7 +21,7 @@ object ColorsDark {
     val surface = background
     val primary = Color(0xFF6060A0)
     val secondary = Color(0xFF505070)
-    val tertiary = Color(0xFF7D5260)
+    val tertiary = Color(0x88303050)
     val onPrimary = Color(0xFFFFFFFF)
     //val onSecondary = Color(0xFFFF0000)
     //val onTertiary = Color(0xFFFF0000)

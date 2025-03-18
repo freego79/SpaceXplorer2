@@ -1,6 +1,7 @@
-package cz.freego.tutorial.core.design.component.item
+package cz.freego.tutorial.core.design.compose.item
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -17,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -33,7 +35,7 @@ fun CrewListItem(
         modifier = modifier
             .fillMaxWidth()
             .padding(8.dp),
-        elevation = CardDefaults.cardElevation(4.dp)
+        elevation = CardDefaults.cardElevation(4.dp),
     ) {
         Row(
             modifier = Modifier.padding(12.dp),
@@ -42,12 +44,15 @@ fun CrewListItem(
             Image(
                 painter = rememberAsyncImagePainter(crewMember.image),
                 contentDescription = crewMember.name,
-                modifier = Modifier.size(72.dp).clip(CircleShape),
+                modifier = Modifier
+                    .size(72.dp)
+                    .clip(CircleShape)
+                    .background(MaterialTheme.colorScheme.tertiary),
                 contentScale = ContentScale.Crop
             )
             Spacer(modifier = Modifier.width(16.dp))
             Column {
-                Text(text = crewMember.name, style = MaterialTheme.typography.titleLarge)
+                Text(text = crewMember.name ?: "", style = MaterialTheme.typography.titleLarge)
                 Text(text = "Agentura: ${crewMember.agency}", style = MaterialTheme.typography.bodyMedium)
                 Text(text = "Status: ${crewMember.status}", style = MaterialTheme.typography.bodySmall)
             }

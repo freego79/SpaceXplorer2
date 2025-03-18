@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import cz.freego.tutorial.core.design.component.animation.PersistentLottieAnimation
+import cz.freego.tutorial.core.design.compose.animation.PersistentLottieAnimation
 import cz.freego.tutorial.core.presentation.SplashViewModel
 import cz.freego.tutorial.spacexplorer.ui.Screen
 

@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import cz.freego.tutorial.core.domain.GetCompanyUseCase
 import cz.freego.tutorial.core.domain.GetCrewUseCase
+import cz.freego.tutorial.core.domain.GetRocketUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -12,7 +13,8 @@ import javax.inject.Inject
 @HiltViewModel
 class SplashViewModel @Inject constructor(
     private val getCompanyUseCase: GetCompanyUseCase,
-    private val getCrewUseCase: GetCrewUseCase
+    private val getCrewUseCase: GetCrewUseCase,
+    private val getRocketUseCase: GetRocketUseCase,
 ) : ViewModel() {
 
     init {
@@ -26,8 +28,8 @@ class SplashViewModel @Inject constructor(
             getCompanyUseCase(Unit)
             // Zavoláme UseCase pro načtení první stránky
             try {
-                // Volání use case pro načtení první stránky
-                getCrewUseCase().first() // Zavoláme bez čekání na výsledek
+                getCrewUseCase().first() // Zavoláme bez čekání na výsledek první page
+                getRocketUseCase().first()
             } catch (e: Exception) {
                 // nezajímá nás, buď dopadne nebo ne
             }

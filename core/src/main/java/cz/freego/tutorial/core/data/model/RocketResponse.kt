@@ -1,7 +1,7 @@
 package cz.freego.tutorial.core.data.model
 
-data class CrewResponse(
-    val docs: List<CrewMemberDto>,
+data class RocketResponse(
+    val docs: List<RocketDto>,
     val totalDocs: Int?,
     val limit: Int?,
     val totalPages: Int?,

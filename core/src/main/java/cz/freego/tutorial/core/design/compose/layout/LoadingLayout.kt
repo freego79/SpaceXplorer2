@@ -1,4 +1,4 @@
-package cz.freego.tutorial.core.design.component.layout
+package cz.freego.tutorial.core.design.compose.layout
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
