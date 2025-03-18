@@ -64,6 +64,8 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
 
+    // Coil - pro načítání obrázků
+    implementation(libs.coil.compose)  // nebo poslední verze
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
