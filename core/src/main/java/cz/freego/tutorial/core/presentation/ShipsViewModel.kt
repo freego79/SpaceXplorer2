@@ -4,15 +4,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import cz.freego.tutorial.core.data.model.CapsuleDto
-import cz.freego.tutorial.core.domain.GetCapsuleUseCase
+import cz.freego.tutorial.core.data.model.ShipDto
+import cz.freego.tutorial.core.domain.QueryShipsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 @HiltViewModel
-class CapsuleViewModel @Inject constructor(
-    getCapsuleUseCase: GetCapsuleUseCase
+class ShipsViewModel @Inject constructor(
+    getShipsUseCase: QueryShipsUseCase
 ) : ViewModel() {
-    val capsules: Flow<PagingData<CapsuleDto>> = getCapsuleUseCase().cachedIn(viewModelScope)
+    val ships: Flow<PagingData<ShipDto>> = getShipsUseCase().cachedIn(viewModelScope)
 }

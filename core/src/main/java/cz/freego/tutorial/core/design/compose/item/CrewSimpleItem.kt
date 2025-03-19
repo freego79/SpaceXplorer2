@@ -2,6 +2,7 @@ package cz.freego.tutorial.core.design.compose.item
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -30,6 +31,7 @@ import cz.freego.tutorial.core.design.theme.phone.SpaceXplorerTheme
 fun CrewSimpleItem(
     modifier: Modifier = Modifier,
     crewMember: CrewMemberDto,
+    onCrewClicked: (String?) -> Unit,
 ) {
         Column(
             modifier = modifier.padding(8.dp).width(112.dp),
@@ -41,7 +43,8 @@ fun CrewSimpleItem(
                 modifier = Modifier
                     .size(96.dp)
                     .clip(CircleShape)
-                    .background(MaterialTheme.colorScheme.tertiary),
+                    .background(MaterialTheme.colorScheme.tertiary)
+                    .clickable { onCrewClicked(crewMember.id) },
                 contentScale = ContentScale.Crop
             )
             Spacer(modifier = Modifier.height(8.dp))
@@ -66,7 +69,8 @@ private fun CrewSimpleItemPreview() {
                 crewMember = CrewMemberDto(
                     id = "0001",
                     name = "John Doe",
-                )
+                ),
+                onCrewClicked = {},
             )
         }
     }

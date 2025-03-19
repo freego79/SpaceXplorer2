@@ -3,6 +3,7 @@ package cz.freego.tutorial.core.data.api
 import cz.freego.tutorial.core.data.model.CapsuleQueryRequest
 import cz.freego.tutorial.core.data.model.CapsuleResponse
 import cz.freego.tutorial.core.data.model.CompanyInfoDto
+import cz.freego.tutorial.core.data.model.CrewMemberDto
 import cz.freego.tutorial.core.data.model.CrewQueryRequest
 import cz.freego.tutorial.core.data.model.CrewResponse
 import cz.freego.tutorial.core.data.model.DragonQueryRequest
@@ -18,13 +19,14 @@ import cz.freego.tutorial.core.data.model.ShipResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface SpaceXApi {
     @GET("company")
     suspend fun getCompany(): CompanyInfoDto
 
     @POST("crew/query")
-    suspend fun queryCrew(@Body request: CrewQueryRequest): CrewResponse
+    suspend fun queryCrews(@Body request: CrewQueryRequest): CrewResponse
 
     @POST("rockets/query")
     suspend fun queryRockets(@Body request: RocketQueryRequest): RocketResponse
@@ -44,4 +46,6 @@ interface SpaceXApi {
     @POST("landpads/query")
     suspend fun queryLandpads(@Body request: LandpadQueryRequest): LandpadResponse
 
+    @GET("crew/{id}")
+    suspend fun getCrewMember(@Path("id") id: String): CrewMemberDto
 }

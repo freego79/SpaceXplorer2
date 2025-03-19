@@ -3,22 +3,24 @@ package cz.freego.tutorial.core.di
 import android.content.Context
 import cz.freego.tutorial.core.data.api.ApiManager
 import cz.freego.tutorial.core.data.api.SpaceXApi
-import cz.freego.tutorial.core.data.repository.CapsuleRepository
-import cz.freego.tutorial.core.data.repository.CompanyRepository
-import cz.freego.tutorial.core.data.repository.CrewRepository
-import cz.freego.tutorial.core.data.repository.DragonRepository
-import cz.freego.tutorial.core.data.repository.LandpadRepository
-import cz.freego.tutorial.core.data.repository.LaunchpadRepository
-import cz.freego.tutorial.core.data.repository.RocketRepository
-import cz.freego.tutorial.core.data.repository.ShipRepository
-import cz.freego.tutorial.core.domain.GetCapsuleUseCase
+import cz.freego.tutorial.core.data.repository.QueryCapsulesRepository
+import cz.freego.tutorial.core.data.repository.GetCompanyRepository
+import cz.freego.tutorial.core.data.repository.GetCrewRepository
+import cz.freego.tutorial.core.data.repository.QueryCrewsRepository
+import cz.freego.tutorial.core.data.repository.QueryDragonsRepository
+import cz.freego.tutorial.core.data.repository.QueryLandpadsRepository
+import cz.freego.tutorial.core.data.repository.QueryLaunchpadsRepository
+import cz.freego.tutorial.core.data.repository.QueryRocketsRepository
+import cz.freego.tutorial.core.data.repository.QueryShipsRepository
+import cz.freego.tutorial.core.domain.QueryCapsulesUseCase
 import cz.freego.tutorial.core.domain.GetCompanyUseCase
 import cz.freego.tutorial.core.domain.GetCrewUseCase
-import cz.freego.tutorial.core.domain.GetDragonUseCase
-import cz.freego.tutorial.core.domain.GetLandpadUseCase
-import cz.freego.tutorial.core.domain.GetLaunchpadUseCase
-import cz.freego.tutorial.core.domain.GetRocketUseCase
-import cz.freego.tutorial.core.domain.GetShipUseCase
+import cz.freego.tutorial.core.domain.QueryCrewsUseCase
+import cz.freego.tutorial.core.domain.QueryDragonsUseCase
+import cz.freego.tutorial.core.domain.QueryLandpadsUseCase
+import cz.freego.tutorial.core.domain.QueryLaunchpadsUseCase
+import cz.freego.tutorial.core.domain.QueryRocketsUseCase
+import cz.freego.tutorial.core.domain.QueryShipsUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -43,100 +45,109 @@ object CoreModule {
 
     @Provides
     @Singleton
-    fun provideCompanyRepository(api: SpaceXApi) = CompanyRepository(api)
+    fun provideGetCompanyRepository(api: SpaceXApi) = GetCompanyRepository(api)
 
     @Provides
-    fun provideGetCompanyUseCase(repository: CompanyRepository) = GetCompanyUseCase(repository)
+    fun provideGetCompanyUseCase(repository: GetCompanyRepository) = GetCompanyUseCase(repository)
 
     // --- Crew Repository + UseCase ---
 
     @Provides
     @Singleton
-    fun provideCrewRepository(api: SpaceXApi): CrewRepository {
-        return CrewRepository(api)
-    }
+    fun provideGetCrewRepository(api: SpaceXApi) = GetCrewRepository(api)
 
     @Provides
-    fun provideGetCrewUseCase(repository: CrewRepository): GetCrewUseCase {
-        return GetCrewUseCase(repository)
-    }
+    fun provideGetCrewUseCase(repository: GetCrewRepository) = GetCrewUseCase(repository)
 
-    // --- Rocket Repository + UseCase ---
+    // --- Crews Repository + UseCase ---
 
     @Provides
     @Singleton
-    fun provideRocketRepository(api: SpaceXApi): RocketRepository {
-        return RocketRepository(api)
+    fun provideQueryCrewsRepository(api: SpaceXApi): QueryCrewsRepository {
+        return QueryCrewsRepository(api)
     }
 
     @Provides
-    fun provideGetRocketUseCase(repository: RocketRepository): GetRocketUseCase {
-        return GetRocketUseCase(repository)
+    fun provideQueryCrewsUseCase(repository: QueryCrewsRepository): QueryCrewsUseCase {
+        return QueryCrewsUseCase(repository)
     }
 
-    // --- Dragon Repository + UseCase ---
-
-    @Provides
-    @Singleton
-    fun provideDragonRepository(api: SpaceXApi): DragonRepository {
-        return DragonRepository(api)
-    }
-
-    @Provides
-    fun provideGetDragonUseCase(repository: DragonRepository): GetDragonUseCase {
-        return GetDragonUseCase(repository)
-    }
-
-    // --- Capsule Repository + UseCase ---
+    // --- Rockets Repository + UseCase ---
 
     @Provides
     @Singleton
-    fun provideCapsuleRepository(api: SpaceXApi): CapsuleRepository {
-        return CapsuleRepository(api)
+    fun provideQueryRocketsRepository(api: SpaceXApi): QueryRocketsRepository {
+        return QueryRocketsRepository(api)
     }
 
     @Provides
-    fun provideGetCapsuleUseCase(repository: CapsuleRepository): GetCapsuleUseCase {
-        return GetCapsuleUseCase(repository)
+    fun provideQueryRocketsUseCase(repository: QueryRocketsRepository): QueryRocketsUseCase {
+        return QueryRocketsUseCase(repository)
     }
 
-    // --- Ship Repository + UseCase ---
-
-    @Provides
-    @Singleton
-    fun provideShipRepository(api: SpaceXApi): ShipRepository {
-        return ShipRepository(api)
-    }
-
-    @Provides
-    fun provideGetShipUseCase(repository: ShipRepository): GetShipUseCase {
-        return GetShipUseCase(repository)
-    }
-
-    // --- Launchpad Repository + UseCase ---
+    // --- Dragons Repository + UseCase ---
 
     @Provides
     @Singleton
-    fun provideLaunchpadRepository(api: SpaceXApi): LaunchpadRepository {
-        return LaunchpadRepository(api)
+    fun provideQueryDragonsRepository(api: SpaceXApi): QueryDragonsRepository {
+        return QueryDragonsRepository(api)
     }
 
     @Provides
-    fun provideGetLaunchpadUseCase(repository: LaunchpadRepository): GetLaunchpadUseCase {
-        return GetLaunchpadUseCase(repository)
+    fun provideQueryDragonsUseCase(repository: QueryDragonsRepository): QueryDragonsUseCase {
+        return QueryDragonsUseCase(repository)
     }
 
-    // --- Landpad Repository + UseCase ---
+    // --- Capsules Repository + UseCase ---
 
     @Provides
     @Singleton
-    fun provideLandpadRepository(api: SpaceXApi): LandpadRepository {
-        return LandpadRepository(api)
+    fun provideQueryCapsulesRepository(api: SpaceXApi): QueryCapsulesRepository {
+        return QueryCapsulesRepository(api)
     }
 
     @Provides
-    fun provideGetLandpadUseCase(repository: LandpadRepository): GetLandpadUseCase {
-        return GetLandpadUseCase(repository)
+    fun provideQueryCapsulesUseCase(repository: QueryCapsulesRepository): QueryCapsulesUseCase {
+        return QueryCapsulesUseCase(repository)
+    }
+
+    // --- Ships Repository + UseCase ---
+
+    @Provides
+    @Singleton
+    fun provideQueryShipsRepository(api: SpaceXApi): QueryShipsRepository {
+        return QueryShipsRepository(api)
+    }
+
+    @Provides
+    fun provideQueryShipsUseCase(repository: QueryShipsRepository): QueryShipsUseCase {
+        return QueryShipsUseCase(repository)
+    }
+
+    // --- Launchpads Repository + UseCase ---
+
+    @Provides
+    @Singleton
+    fun provideQueryLaunchpadsRepository(api: SpaceXApi): QueryLaunchpadsRepository {
+        return QueryLaunchpadsRepository(api)
+    }
+
+    @Provides
+    fun provideQueryLaunchpadsUseCase(repository: QueryLaunchpadsRepository): QueryLaunchpadsUseCase {
+        return QueryLaunchpadsUseCase(repository)
+    }
+
+    // --- Landpads Repository + UseCase ---
+
+    @Provides
+    @Singleton
+    fun provideQueryLandpadsRepository(api: SpaceXApi): QueryLandpadsRepository {
+        return QueryLandpadsRepository(api)
+    }
+
+    @Provides
+    fun provideQueryLandpadsUseCase(repository: QueryLandpadsRepository): QueryLandpadsUseCase {
+        return QueryLandpadsUseCase(repository)
     }
 
 }

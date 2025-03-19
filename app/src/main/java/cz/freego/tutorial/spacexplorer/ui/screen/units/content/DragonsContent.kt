@@ -12,10 +12,10 @@ import cz.freego.tutorial.core.data.model.DragonDto
 import cz.freego.tutorial.core.design.compose.handler.LazyTypeEnum
 import cz.freego.tutorial.core.design.compose.handler.PagingStateHandler
 import cz.freego.tutorial.core.design.compose.item.DragonListItem
-import cz.freego.tutorial.core.presentation.DragonViewModel
+import cz.freego.tutorial.core.presentation.DragonsViewModel
 
 @Composable
-fun DragonsContent(viewModel: DragonViewModel = hiltViewModel()) {
+fun DragonsContent(viewModel: DragonsViewModel = hiltViewModel()) {
     val dragons: LazyPagingItems<DragonDto> = viewModel.dragons.collectAsLazyPagingItems()
 
     PagingStateHandler<DragonDto>(

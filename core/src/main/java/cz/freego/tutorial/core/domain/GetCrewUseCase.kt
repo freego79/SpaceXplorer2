@@ -1,13 +1,16 @@
 package cz.freego.tutorial.core.domain
 
-import androidx.paging.PagingData
+import cz.freego.tutorial.core.data.model.CompanyInfoDto
 import cz.freego.tutorial.core.data.model.CrewMemberDto
-import cz.freego.tutorial.core.data.repository.CrewRepository
-import kotlinx.coroutines.flow.Flow
+import cz.freego.tutorial.core.data.repository.GetCompanyRepository
+import cz.freego.tutorial.core.data.repository.GetCrewRepository
+import cz.freego.tutorial.core.utils.RequestState
 import javax.inject.Inject
 
 class GetCrewUseCase @Inject constructor(
-    private val repository: CrewRepository
-) {
-    operator fun invoke(): Flow<PagingData<CrewMemberDto>> = repository.getCrew()
+    private val repository: GetCrewRepository
+) : UseCase<String, RequestState<CrewMemberDto>> {
+    override suspend fun invoke(id: String): RequestState<CrewMemberDto> {
+        return repository.getCrew(id)
+    }
 }

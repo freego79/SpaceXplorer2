@@ -2,6 +2,7 @@ package cz.freego.tutorial.core.design.compose.item
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -30,6 +31,7 @@ import cz.freego.tutorial.core.design.theme.phone.SpaceXplorerTheme
 fun CrewListItem(
     modifier: Modifier = Modifier,
     crewMember: CrewMemberDto,
+    onCrewClicked: (String?) -> Unit,
 ) {
     Card(
         modifier = modifier
@@ -48,6 +50,7 @@ fun CrewListItem(
                         )
                     )
                 )
+                .clickable { onCrewClicked(crewMember.id) }
                 .padding(12.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -88,7 +91,8 @@ private fun CrewListItemPreview() {
                 name = "John Doe",
                 agency = "NASA",
                 status = "active",
-            )
+            ),
+            onCrewClicked = {},
         )
     }
 }

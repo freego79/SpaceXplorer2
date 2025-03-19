@@ -12,10 +12,10 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import cz.freego.tutorial.core.data.model.LandpadDto
 import cz.freego.tutorial.core.design.compose.handler.LazyTypeEnum
 import cz.freego.tutorial.core.design.compose.handler.PagingStateHandler
-import cz.freego.tutorial.core.presentation.LandpadViewModel
+import cz.freego.tutorial.core.presentation.LandpadsViewModel
 
 @Composable
-fun LandpadsContent(viewModel: LandpadViewModel = hiltViewModel()) {
+fun LandpadsContent(viewModel: LandpadsViewModel = hiltViewModel()) {
     val landpads: LazyPagingItems<LandpadDto> = viewModel.landpads.collectAsLazyPagingItems()
 
     PagingStateHandler<LandpadDto>(

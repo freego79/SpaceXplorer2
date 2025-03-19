@@ -12,10 +12,10 @@ import cz.freego.tutorial.core.data.model.CapsuleDto
 import cz.freego.tutorial.core.design.compose.handler.LazyTypeEnum
 import cz.freego.tutorial.core.design.compose.handler.PagingStateHandler
 import cz.freego.tutorial.core.design.compose.item.CapsuleListItem
-import cz.freego.tutorial.core.presentation.CapsuleViewModel
+import cz.freego.tutorial.core.presentation.CapsulesViewModel
 
 @Composable
-fun CapsulesContent(viewModel: CapsuleViewModel = hiltViewModel()) {
+fun CapsulesContent(viewModel: CapsulesViewModel = hiltViewModel()) {
     val capsules: LazyPagingItems<CapsuleDto> = viewModel.capsules.collectAsLazyPagingItems()
 
     PagingStateHandler<CapsuleDto>(

@@ -8,7 +8,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlin.random.Random
 
-class CompanyRepository(private val api: SpaceXApi) {
+class GetCompanyRepository(private val api: SpaceXApi) {
     suspend fun getCompanyInfo(): RequestState<CompanyInfoDto> {
         return try {
             withContext(Dispatchers.IO) {

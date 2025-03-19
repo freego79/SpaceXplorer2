@@ -87,11 +87,12 @@ fun HomeScreen(
         },
 
         bottomBar = {
-            AnimatedVisibility(
-                visible = !isBottomNavigationBarHidden,
-                enter = fadeIn(),
-                exit = fadeOut()
-            ) {
+//            AnimatedVisibility(
+//                visible = !isBottomNavigationBarHidden,
+//                enter = fadeIn(),
+//                exit = fadeOut()
+//            ) {
+            if (!isBottomNavigationBarHidden) {
                 NavigationBar {
                     sectionsScreens.forEachIndexed { index, screen ->
                         NavigationBarItem(
@@ -104,8 +105,16 @@ fun HomeScreen(
                                     restoreState = true // zachová stav obrazovky při návratu
                                 }
                             },
-                            icon = { Icon(screen.icon, contentDescription = screen.title) },
-                            label = { Text(text = screen.title, maxLines = 1, overflow = TextOverflow.Ellipsis) }
+                            icon = {
+                                screen.icon?.let {
+                                    Icon(screen.icon, contentDescription = screen.title)
+                                }
+                            },
+                            label = {
+                                screen.title?.let {
+                                    Text(text = screen.title, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                                }
+                            }
                         )
                     }
                 }

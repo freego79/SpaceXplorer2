@@ -4,15 +4,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import cz.freego.tutorial.core.data.model.DragonDto
-import cz.freego.tutorial.core.domain.GetDragonUseCase
+import cz.freego.tutorial.core.data.model.LaunchpadDto
+import cz.freego.tutorial.core.domain.QueryLaunchpadsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 @HiltViewModel
-class DragonViewModel @Inject constructor(
-    getDragonUseCase: GetDragonUseCase
+class LaunchpadsViewModel @Inject constructor(
+    getLaunchpadsUseCase: QueryLaunchpadsUseCase
 ) : ViewModel() {
-    val dragons: Flow<PagingData<DragonDto>> = getDragonUseCase().cachedIn(viewModelScope)
+    val launchpads: Flow<PagingData<LaunchpadDto>> = getLaunchpadsUseCase().cachedIn(viewModelScope)
 }

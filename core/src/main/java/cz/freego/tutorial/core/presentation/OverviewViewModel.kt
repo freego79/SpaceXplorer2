@@ -8,20 +8,20 @@ import cz.freego.tutorial.core.data.model.CrewMemberDto
 import cz.freego.tutorial.core.data.model.DragonDto
 import cz.freego.tutorial.core.data.model.RocketDto
 import cz.freego.tutorial.core.data.model.ShipDto
-import cz.freego.tutorial.core.domain.GetCrewUseCase
-import cz.freego.tutorial.core.domain.GetDragonUseCase
-import cz.freego.tutorial.core.domain.GetRocketUseCase
-import cz.freego.tutorial.core.domain.GetShipUseCase
+import cz.freego.tutorial.core.domain.QueryCrewsUseCase
+import cz.freego.tutorial.core.domain.QueryDragonsUseCase
+import cz.freego.tutorial.core.domain.QueryRocketsUseCase
+import cz.freego.tutorial.core.domain.QueryShipsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 @HiltViewModel
 class OverviewViewModel @Inject constructor(
-    getCrewUseCase: GetCrewUseCase,
-    getDragonUseCase: GetDragonUseCase,
-    getRocketUseCase: GetRocketUseCase,
-    getShipUseCase: GetShipUseCase,
+    getCrewUseCase: QueryCrewsUseCase,
+    getDragonUseCase: QueryDragonsUseCase,
+    getRocketUseCase: QueryRocketsUseCase,
+    getShipUseCase: QueryShipsUseCase,
 ) : ViewModel() {
     val crewMembers: Flow<PagingData<CrewMemberDto>> = getCrewUseCase().cachedIn(viewModelScope)
     val dragons: Flow<PagingData<DragonDto>> = getDragonUseCase().cachedIn(viewModelScope)

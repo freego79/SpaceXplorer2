@@ -12,10 +12,10 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import cz.freego.tutorial.core.data.model.ShipDto
 import cz.freego.tutorial.core.design.compose.handler.LazyTypeEnum
 import cz.freego.tutorial.core.design.compose.handler.PagingStateHandler
-import cz.freego.tutorial.core.presentation.ShipViewModel
+import cz.freego.tutorial.core.presentation.ShipsViewModel
 
 @Composable
-fun ShipsContent(viewModel: ShipViewModel = hiltViewModel()) {
+fun ShipsContent(viewModel: ShipsViewModel = hiltViewModel()) {
     val ships: LazyPagingItems<ShipDto> = viewModel.ships.collectAsLazyPagingItems()
 
     PagingStateHandler<ShipDto>(

@@ -12,10 +12,10 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class LandpadRepository @Inject constructor(
+class QueryLandpadsRepository @Inject constructor(
     private val api: SpaceXApi
 ) {
-    fun getLandpad(): Flow<PagingData<LandpadDto>> {
+    fun getLandpads(): Flow<PagingData<LandpadDto>> {
         return Pager(
             config = PagingConfig(
                 pageSize = Constants.LANDPAD_PAGING_LIMIT,

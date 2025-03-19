@@ -37,6 +37,7 @@ fun OverviewScreen(
             CrewWidget(
                 crewMembers = crewMembers,
                 onGotoCrewScreenClicked = { navController.navigate(Screen.SectionCrews.route) },
+                navController = navController,
             )
         }
         item {

@@ -8,7 +8,7 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.ui.graphics.vector.ImageVector
 
-sealed class Screen(val route: String, val title: String, val icon: ImageVector) {
+sealed class Screen(val route: String, val title: String? = null, val icon: ImageVector? = null) {
 
     abstract fun createRoute(): String // Abstraktní metoda pro generování cesty
 
@@ -26,6 +26,11 @@ sealed class Screen(val route: String, val title: String, val icon: ImageVector)
 
     object SectionCrews : Screen("crews", "Posádky", Icons.Filled.Person) {
         override fun createRoute() = route
+    }
+
+    object DetailCrew : Screen("crew/{id}") {
+        override fun createRoute() = createRoute("")
+        fun createRoute(id: String) = "crew/$id"
     }
 
     object SectionUnits : Screen("units/{categoryIndex}", "Zařízení", Icons.Filled.Favorite) {

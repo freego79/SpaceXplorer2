@@ -16,7 +16,7 @@ class CrewPagingSource @Inject constructor(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, CrewMemberDto> {
         return try {
             val page = params.key ?: 1
-            val response = api.queryCrew(
+            val response = api.queryCrews(
                 CrewQueryRequest(
                     options = CrewQueryOptions(
                         limit = Constants.CREW_PAGING_LIMIT,

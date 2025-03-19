@@ -12,10 +12,10 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import cz.freego.tutorial.core.data.model.RocketDto
 import cz.freego.tutorial.core.design.compose.handler.LazyTypeEnum
 import cz.freego.tutorial.core.design.compose.handler.PagingStateHandler
-import cz.freego.tutorial.core.presentation.RocketViewModel
+import cz.freego.tutorial.core.presentation.RocketsViewModel
 
 @Composable
-fun RocketsContent(viewModel: RocketViewModel = hiltViewModel()) {
+fun RocketsContent(viewModel: RocketsViewModel = hiltViewModel()) {
     val rockets: LazyPagingItems<RocketDto> = viewModel.rockets.collectAsLazyPagingItems()
 
     PagingStateHandler<RocketDto>(

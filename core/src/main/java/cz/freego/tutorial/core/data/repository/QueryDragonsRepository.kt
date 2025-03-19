@@ -5,23 +5,23 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import cz.freego.tutorial.core.Constants
 import cz.freego.tutorial.core.data.api.SpaceXApi
-import cz.freego.tutorial.core.data.model.CrewMemberDto
-import cz.freego.tutorial.core.data.paging.CrewPagingSource
+import cz.freego.tutorial.core.data.model.DragonDto
+import cz.freego.tutorial.core.data.paging.DragonPagingSource
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class CrewRepository @Inject constructor(
+class QueryDragonsRepository @Inject constructor(
     private val api: SpaceXApi
 ) {
-    fun getCrew(): Flow<PagingData<CrewMemberDto>> {
+    fun getDragons(): Flow<PagingData<DragonDto>> {
         return Pager(
             config = PagingConfig(
-                pageSize = Constants.CREW_PAGING_LIMIT,
+                pageSize = Constants.DRAGON_PAGING_LIMIT,
                 enablePlaceholders = false,
             ),
-            pagingSourceFactory = { CrewPagingSource(api) }
+            pagingSourceFactory = { DragonPagingSource(api) }
         ).flow
     }
 }

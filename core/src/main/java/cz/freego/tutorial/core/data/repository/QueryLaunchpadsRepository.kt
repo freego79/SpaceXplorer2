@@ -12,10 +12,10 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class LaunchpadRepository @Inject constructor(
+class QueryLaunchpadsRepository @Inject constructor(
     private val api: SpaceXApi
 ) {
-    fun getLaunchpad(): Flow<PagingData<LaunchpadDto>> {
+    fun getLaunchpads(): Flow<PagingData<LaunchpadDto>> {
         return Pager(
             config = PagingConfig(
                 pageSize = Constants.LAUNCHPAD_PAGING_LIMIT,
