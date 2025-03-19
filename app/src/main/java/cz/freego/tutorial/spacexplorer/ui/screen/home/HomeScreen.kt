@@ -97,10 +97,10 @@ fun HomeScreen(
                             selected = index == selectedItem,
                             onClick = {
                                 navController.popBackStack(navController.graph.startDestinationId, false)
-                                navController.navigate(screen.route) {
-                                    popUpTo(Screen.Home.route) { saveState = true }
-                                    launchSingleTop = true
-                                    restoreState = true
+                                navController.navigate(screen.createRoute()) {
+                                    popUpTo(Screen.Home.route) { saveState = true } // zachová stav při návratu
+                                    launchSingleTop = true // zabrání zbytečnému znovuvytváření obrazovek
+                                    restoreState = true // zachová stav obrazovky při návratu
                                 }
                             },
                             icon = { Icon(screen.icon, contentDescription = screen.title) },

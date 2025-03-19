@@ -1,4 +1,4 @@
-package cz.freego.tutorial.spacexplorer.ui.screen.units
+package cz.freego.tutorial.spacexplorer.ui.screen.units.content
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,26 +9,26 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
-import cz.freego.tutorial.core.data.model.CapsuleDto
+import cz.freego.tutorial.core.data.model.ShipDto
 import cz.freego.tutorial.core.design.compose.handler.PagingStateHandler
-import cz.freego.tutorial.core.presentation.CapsuleViewModel
+import cz.freego.tutorial.core.presentation.ShipViewModel
 
 @Composable
-fun CapsulesContent(viewModel: CapsuleViewModel = hiltViewModel()) {
-    val capsules: LazyPagingItems<CapsuleDto> = viewModel.capsules.collectAsLazyPagingItems()
+fun ShipsContent(viewModel: ShipViewModel = hiltViewModel()) {
+    val ships: LazyPagingItems<ShipDto> = viewModel.ships.collectAsLazyPagingItems()
 
-    PagingStateHandler<CapsuleDto>(
+    PagingStateHandler<ShipDto>(
         lazyType = "column",
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp),
-        loadState = capsules.loadState,
-        itemCount = capsules.itemCount
+        loadState = ships.loadState,
+        itemCount = ships.itemCount
     ) {
-        item { Text("CAPSULES_CONTENT") }
+        item { Text("SHIPS_CONTENT") }
 
-        items(capsules.itemCount) { index ->
-            capsules[index]?.let { capsule ->
-                Text(text = "LAST UPDATES: ${capsule.lastUpdate ?: ""}")
+        items(ships.itemCount) { index ->
+            ships[index]?.let { ship ->
+                Text(text = ship.name ?: "")
             }
         }
     }

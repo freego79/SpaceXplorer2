@@ -2,6 +2,7 @@ package cz.freego.tutorial.core.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import cz.freego.tutorial.core.Constants
 import cz.freego.tutorial.core.domain.GetCapsuleUseCase
 import cz.freego.tutorial.core.domain.GetCompanyUseCase
 import cz.freego.tutorial.core.domain.GetCrewUseCase
@@ -30,7 +31,7 @@ class SplashViewModel @Inject constructor(
     init {
         // Na pozadí spustíme načítání dat, ale na výsledek nečekáme
         // Ideálně se první data načtou do cache během splash animace
-        cacheData()
+        if (Constants.PRECACHE_ON_SPLASHSCREEN) cacheData()
     }
 
     private fun cacheData() {

@@ -1,4 +1,4 @@
-package cz.freego.tutorial.spacexplorer.ui.screen.units
+package cz.freego.tutorial.spacexplorer.ui.screen.units.content
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,26 +9,26 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
-import cz.freego.tutorial.core.data.model.DragonDto
+import cz.freego.tutorial.core.data.model.LandpadDto
 import cz.freego.tutorial.core.design.compose.handler.PagingStateHandler
-import cz.freego.tutorial.core.presentation.DragonViewModel
+import cz.freego.tutorial.core.presentation.LandpadViewModel
 
 @Composable
-fun DragonsContent(viewModel: DragonViewModel = hiltViewModel()) {
-    val dragons: LazyPagingItems<DragonDto> = viewModel.dragons.collectAsLazyPagingItems()
+fun LandpadsContent(viewModel: LandpadViewModel = hiltViewModel()) {
+    val landpads: LazyPagingItems<LandpadDto> = viewModel.landpads.collectAsLazyPagingItems()
 
-    PagingStateHandler<DragonDto>(
+    PagingStateHandler<LandpadDto>(
         lazyType = "column",
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp),
-        loadState = dragons.loadState,
-        itemCount = dragons.itemCount
+        loadState = landpads.loadState,
+        itemCount = landpads.itemCount
     ) {
-        item { Text("DRAGONS_CONTENT") }
+        item { Text("LANDPADS_CONTENT") }
 
-        items(dragons.itemCount) { index ->
-            dragons[index]?.let { dragon ->
-                Text(text = dragon.name ?: "")
+        items(landpads.itemCount) { index ->
+            landpads[index]?.let { landpad ->
+                Text(text = landpad.name ?: "")
             }
         }
     }

@@ -17,8 +17,8 @@ class ApiManager @Inject constructor(
     @ApplicationContext private val context: Context // Přidání kontextu
 ) {
     // Nastavení cache
-    private val cacheDir = File(context.cacheDir, "http_cache")
-    private val cacheSize = 10L * 1024L * 1024L // 10 MB cache
+    private val cacheDir = File(context.cacheDir, Constants.CACHE_DIR)
+    private val cacheSize = Constants.CACHE_SIZE
     private val cache = Cache(cacheDir, cacheSize)
 
     private val retrofit by lazy {
@@ -34,7 +34,7 @@ class ApiManager @Inject constructor(
             })
             .addInterceptor { chain ->
                 val request = chain.request().newBuilder()
-                    .header("Cache-Control", "public, max-age=60") // Cache pro 60 sekund
+                    .header("Cache-Control", "public, max-age=${Constants.CACHE_MAX_AGE_SECS}") // Cache pro 60 sekund
                     .build()
                 chain.proceed(request)
             }

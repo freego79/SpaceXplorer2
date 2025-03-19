@@ -36,7 +36,9 @@ fun OverviewScreen(
         item {
             RocketWidget(
                 rockets = rockets,
-                onGotoUnitsScreenRocketSectionClicked = {},
+                onGotoUnitsScreenRocketSectionClicked = {
+                    navController.navigate(Screen.SectionUnits.createRoute(categoryIndex = 2))
+                },
             )
         }
     }
