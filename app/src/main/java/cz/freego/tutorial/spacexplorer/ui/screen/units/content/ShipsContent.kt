@@ -10,6 +10,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import cz.freego.tutorial.core.data.model.ShipDto
+import cz.freego.tutorial.core.design.compose.handler.LazyTypeEnum
 import cz.freego.tutorial.core.design.compose.handler.PagingStateHandler
 import cz.freego.tutorial.core.presentation.ShipViewModel
 
@@ -18,7 +19,7 @@ fun ShipsContent(viewModel: ShipViewModel = hiltViewModel()) {
     val ships: LazyPagingItems<ShipDto> = viewModel.ships.collectAsLazyPagingItems()
 
     PagingStateHandler<ShipDto>(
-        lazyType = "column",
+        lazyType = LazyTypeEnum.LAZY_COLUMN,
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp),
         loadState = ships.loadState,

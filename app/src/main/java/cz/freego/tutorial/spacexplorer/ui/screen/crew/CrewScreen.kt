@@ -8,6 +8,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.LazyPagingItems
 import cz.freego.tutorial.core.data.model.CrewMemberDto
+import cz.freego.tutorial.core.design.compose.handler.LazyTypeEnum
 import cz.freego.tutorial.core.design.compose.handler.PagingStateHandler
 import cz.freego.tutorial.core.design.compose.item.CrewListItem
 import cz.freego.tutorial.core.presentation.CrewViewModel
@@ -17,7 +18,7 @@ fun CrewScreen(viewModel: CrewViewModel = hiltViewModel()) {
     val crewMembers: LazyPagingItems<CrewMemberDto> = viewModel.crewMembers.collectAsLazyPagingItems()
 
     PagingStateHandler<CrewMemberDto>(
-        lazyType = "column",
+        lazyType = LazyTypeEnum.LAZY_COLUMN,
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp),
         loadState = crewMembers.loadState,

@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.paging.compose.LazyPagingItems
 import cz.freego.tutorial.core.data.model.CrewMemberDto
 import cz.freego.tutorial.core.design.compose.button.GotoSpecialButton
+import cz.freego.tutorial.core.design.compose.handler.LazyTypeEnum
 import cz.freego.tutorial.core.design.compose.handler.PagingStateHandler
 import cz.freego.tutorial.core.design.compose.item.CrewSimpleItem
 import cz.freego.tutorial.core.design.compose.item.RocketProgressListItem
@@ -28,7 +29,7 @@ fun CrewWidget(
 
     SubcategoryHeadlineText(text = "Členové posádek")
     PagingStateHandler<CrewMemberDto>(
-        lazyType = "row",
+        lazyType = LazyTypeEnum.LAZY_ROW,
         modifier = Modifier.fillMaxWidth().height(152.dp),
         contentPadding = PaddingValues(8.dp),
         loadState = crewMembers.loadState,

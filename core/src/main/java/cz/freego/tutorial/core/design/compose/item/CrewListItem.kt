@@ -63,8 +63,16 @@ fun CrewListItem(
             Spacer(modifier = Modifier.width(16.dp))
             Column {
                 Text(text = crewMember.name ?: "", style = MaterialTheme.typography.titleLarge)
-                Text(text = "Agentura: ${crewMember.agency}", style = MaterialTheme.typography.bodyMedium)
-                Text(text = "Status: ${crewMember.status}", style = MaterialTheme.typography.bodySmall)
+                Text(
+                    text = "Agentura: ${crewMember.agency}",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = .75f)
+                )
+                Text(
+                    text = "Status: ${crewMember.status}",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = .75f)
+                )
             }
         }
     }

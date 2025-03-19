@@ -10,6 +10,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import cz.freego.tutorial.core.data.model.LaunchpadDto
+import cz.freego.tutorial.core.design.compose.handler.LazyTypeEnum
 import cz.freego.tutorial.core.design.compose.handler.PagingStateHandler
 import cz.freego.tutorial.core.presentation.LaunchpadViewModel
 
@@ -18,7 +19,7 @@ fun LaunchpadsContent(viewModel: LaunchpadViewModel = hiltViewModel()) {
     val launchpads: LazyPagingItems<LaunchpadDto> = viewModel.launchpads.collectAsLazyPagingItems()
 
     PagingStateHandler<LaunchpadDto>(
-        lazyType = "column",
+        lazyType = LazyTypeEnum.LAZY_COLUMN,
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp),
         loadState = launchpads.loadState,

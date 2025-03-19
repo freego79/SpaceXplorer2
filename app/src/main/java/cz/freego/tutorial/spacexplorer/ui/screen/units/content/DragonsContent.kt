@@ -9,6 +9,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import cz.freego.tutorial.core.data.model.DragonDto
+import cz.freego.tutorial.core.design.compose.handler.LazyTypeEnum
 import cz.freego.tutorial.core.design.compose.handler.PagingStateHandler
 import cz.freego.tutorial.core.design.compose.item.DragonListItem
 import cz.freego.tutorial.core.presentation.DragonViewModel
@@ -18,7 +19,7 @@ fun DragonsContent(viewModel: DragonViewModel = hiltViewModel()) {
     val dragons: LazyPagingItems<DragonDto> = viewModel.dragons.collectAsLazyPagingItems()
 
     PagingStateHandler<DragonDto>(
-        lazyType = "column",
+        lazyType = LazyTypeEnum.LAZY_COLUMN,
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp),
         loadState = dragons.loadState,

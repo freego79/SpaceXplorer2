@@ -10,6 +10,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import cz.freego.tutorial.core.data.model.RocketDto
+import cz.freego.tutorial.core.design.compose.handler.LazyTypeEnum
 import cz.freego.tutorial.core.design.compose.handler.PagingStateHandler
 import cz.freego.tutorial.core.presentation.RocketViewModel
 
@@ -18,7 +19,7 @@ fun RocketsContent(viewModel: RocketViewModel = hiltViewModel()) {
     val rockets: LazyPagingItems<RocketDto> = viewModel.rockets.collectAsLazyPagingItems()
 
     PagingStateHandler<RocketDto>(
-        lazyType = "column",
+        lazyType = LazyTypeEnum.LAZY_COLUMN,
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp),
         loadState = rockets.loadState,

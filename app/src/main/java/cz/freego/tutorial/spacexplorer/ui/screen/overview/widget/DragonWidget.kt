@@ -13,6 +13,7 @@ import androidx.paging.compose.LazyPagingItems
 import cz.freego.tutorial.core.data.model.DragonDto
 import cz.freego.tutorial.core.data.model.ShipDto
 import cz.freego.tutorial.core.design.compose.button.GotoSpecialButton
+import cz.freego.tutorial.core.design.compose.handler.LazyTypeEnum
 import cz.freego.tutorial.core.design.compose.handler.PagingStateHandler
 import cz.freego.tutorial.core.design.compose.item.DragonSimpleItem
 import cz.freego.tutorial.core.design.compose.item.RocketProgressListItem
@@ -28,7 +29,7 @@ fun DragonWidget(
 
     SubcategoryHeadlineText(text = "Dragon")
     PagingStateHandler<ShipDto>(
-        lazyType = "row",
+        lazyType = LazyTypeEnum.LAZY_ROW,
         modifier = Modifier.fillMaxWidth().height(216.dp),
         contentPadding = PaddingValues(8.dp),
         loadState = dragons.loadState,

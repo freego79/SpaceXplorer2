@@ -75,11 +75,13 @@ fun DragonListItem(
                     Spacer(Modifier.height(4.dp))
                     Text(
                         text = "Typ: ${dragon.type ?: ""}",
-                        style = MaterialTheme.typography.bodyLarge
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = .75f)
                     )
                     Text(
                         text = "Aktivní: ${if (dragon.active == true) "ano" else "ne"}",
-                        style = MaterialTheme.typography.bodyLarge
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = .75f)
                     )
                 }
             }
