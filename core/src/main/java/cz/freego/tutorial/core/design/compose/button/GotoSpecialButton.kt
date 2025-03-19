@@ -1,7 +1,9 @@
 package cz.freego.tutorial.core.design.compose.button
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
@@ -18,11 +20,12 @@ import cz.freego.tutorial.core.design.theme.phone.SpaceXplorerTheme
 
 @Composable
 fun GotoSpecialButton(
-    modifier: Modifier = Modifier.fillMaxHeight(),
+    modifier: Modifier = Modifier,
     onClick: () -> Unit,
 ) {
     Button(
-        modifier = modifier,
+        modifier = modifier.fillMaxHeight().width(48.dp),
+        contentPadding = PaddingValues(0.dp),
         onClick = { onClick() },
         shape = RoundedCornerShape(12.dp), // Zaoblené rohy
         colors = ButtonDefaults.buttonColors(

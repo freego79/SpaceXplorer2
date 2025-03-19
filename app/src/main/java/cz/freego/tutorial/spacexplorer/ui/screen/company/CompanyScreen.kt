@@ -39,7 +39,7 @@ fun CompanyScreen(
                 .verticalScroll(rememberScrollState())
         ) {
             Text("Název společnosti: ${data.name}")
-            Text("Zakladet: ${data.founder}")
+            Text("Zakladatel: ${data.founder}")
         }
     }
 }

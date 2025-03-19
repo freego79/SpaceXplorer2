@@ -14,11 +14,11 @@ data class CrewResponse(
 )
 
 data class CrewMemberDto(
-    val id: String?,
-    val name: String?,
-    val agency: String?,
-    val image: String?,
-    val wikipedia: String?,
-    val status: String?,
-    val launches: List<String>?,
+    val id: String? = null,
+    val name: String? = null,
+    val agency: String? = null,
+    val image: String? = null,
+    val wikipedia: String? = null,
+    val status: String? = null,
+    val launches: List<String>? = null,
 )

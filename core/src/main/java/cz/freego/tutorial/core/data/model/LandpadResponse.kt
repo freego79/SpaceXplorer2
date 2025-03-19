@@ -16,19 +16,19 @@ data class LandpadResponse(
 )
 
 data class LandpadDto(
-    val images: Images?,
-    val name: String?,
-    @Json(name = "full_name") val fullName: String?,
-    val locality: String?,
-    val region: String?,
-    val latitude: Double?,
-    val longitude: Double?,
-    @Json(name = "launch_attempts") val launchAttempts: Int?,
-    @Json(name = "launch_successes") val launchSuccesses: Int?,
-    val rockets: List<String>?,
-    val timezone: String?,
-    val launches: List<String>?,
-    val status: String?,
-    val details: String?,
-    val id: String?
+    val images: Images? = null,
+    val name: String? = null,
+    @Json(name = "full_name") val fullName: String? = null,
+    val locality: String? = null,
+    val region: String? = null,
+    val latitude: Double? = null,
+    val longitude: Double? = null,
+    @Json(name = "launch_attempts") val launchAttempts: Int? = null,
+    @Json(name = "launch_successes") val launchSuccesses: Int? = null,
+    val rockets: List<String>? = null,
+    val timezone: String? = null,
+    val launches: List<String>? = null,
+    val status: String? = null,
+    val details: String? = null,
+    val id: String? = null
 )

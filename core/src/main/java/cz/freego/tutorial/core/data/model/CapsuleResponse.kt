@@ -16,13 +16,13 @@ data class CapsuleResponse(
 )
 
 data class CapsuleDto(
-    @Json(name = "reuse_count") val reuseCount: Int?,
-    @Json(name = "water_landings") val waterLandings: Int?,
-    @Json(name = "land_landings") val landLandings: Int?,
-    @Json(name = "last_update") val lastUpdate: String?,
-    val launches: List<String>?,
-    val serial: String?,
-    val status: String?,
-    val type: String?,
-    val id: String?
+    @Json(name = "reuse_count") val reuseCount: Int? = null,
+    @Json(name = "water_landings") val waterLandings: Int? = null,
+    @Json(name = "land_landings") val landLandings: Int? = null,
+    @Json(name = "last_update") val lastUpdate: String? = null,
+    val launches: List<String>? = null,
+    val serial: String? = null,
+    val status: String? = null,
+    val type: String? = null,
+    val id: String? = null
 )

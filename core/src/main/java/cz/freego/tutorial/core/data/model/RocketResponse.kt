@@ -16,50 +16,61 @@ data class RocketResponse(
 )
 
 data class RocketDto(
-    val id: String?,
-    val name: String?,
-    val height: Height?,
-    val diameter: Diameter?,
-    val mass: Mass?,
-    @Json(name = "first_stage") val firstStage: Stage?,
-    @Json(name = "second_stage") val secondStage: Stage?,
-    val engines: Engine?,
-    @Json(name = "landing_legs") val landingLegs: LandingLegs?,
-    @Json(name = "payload_weights") val payloadWeights: List<PayloadWeight>?,
-    @Json(name = "flickr_images") val flickrImages: List<String>?,
-    val type: String?,
-    val active: Boolean?,
-    val stages: Int?,
-    val boosters: Int?,
-    @Json(name = "cost_per_launch") val costPerLaunch: Int?,
-    @Json(name = "success_rate_pct") val successRatePct: Int?,
-    @Json(name = "first_flight") val firstFlight: String?,
-    val country: String?,
-    val company: String?,
-    val wikipedia: String?,
-    val description: String?,
+    val id: String? = null,
+    val name: String? = null,
+    val height: Height? = null,
+    val diameter: Diameter? = null,
+    val mass: Mass? = null,
+    @Json(name = "first_stage") val firstStage: Stage? = null,
+    @Json(name = "second_stage") val secondStage: Stage? = null,
+    val engines: Engine? = null,
+    @Json(name = "landing_legs") val landingLegs: LandingLegs? = null,
+    @Json(name = "payload_weights") val payloadWeights: List<PayloadWeight>? = null,
+    @Json(name = "flickr_images") val flickrImages: List<String>? = null,
+    val type: String? = null,
+    val active: Boolean? = null,
+    val stages: Int? = null,
+    val boosters: Int? = null,
+    @Json(name = "cost_per_launch") val costPerLaunch: Int? = null,
+    @Json(name = "success_rate_pct") val successRatePct: Int? = null,
+    @Json(name = "first_flight") val firstFlight: String? = null,
+    val country: String? = null,
+    val company: String? = null,
+    val wikipedia: String? = null,
+    val description: String? = null
 )
 
 data class Stage(
-    @Json(name = "thrust_sea_level") val thrustSeaLevel: Thrust?,
-    @Json(name = "thrust_vacuum") val thrustVacuum: Thrust?,
-    val reusable: Boolean?,
-    val engines: Int?,
-    @Json(name = "fuel_amount_tons") val fuelAmountTons: Double?,
-    @Json(name = "burn_time_sec") val burnTimeSec: Int?,
+    @Json(name = "thrust_sea_level") val thrustSeaLevel: Thrust? = null,
+    @Json(name = "thrust_vacuum") val thrustVacuum: Thrust? = null,
+    val reusable: Boolean? = null,
+    val engines: Int? = null,
+    @Json(name = "fuel_amount_tons") val fuelAmountTons: Double? = null,
+    @Json(name = "burn_time_sec") val burnTimeSec: Int? = null
 )
 
 data class Engine(
-    val isp: ISP?,
-    @Json(name = "thrust_sea_level") val thrustSeaLevel: Thrust?,
-    @Json(name = "thrust_vacuum") val thrustVacuum: Thrust?,
-    val number: Int?,
-    val type: String?,
-    val version: String?,
+    val isp: ISP? = null,
+    @Json(name = "thrust_sea_level") val thrustSeaLevel: Thrust? = null,
+    @Json(name = "thrust_vacuum") val thrustVacuum: Thrust? = null,
+    val number: Int? = null,
+    val type: String? = null,
+    val version: String? = null
 )
+
 data class ISP(
-    @Json(name = "sea_level") val seaLevel: Int?,
-    val vacuum: Int?,
+    @Json(name = "sea_level") val seaLevel: Int? = null,
+    val vacuum: Int? = null
 )
-data class LandingLegs(val number: Int?, val material: String?)
-data class PayloadWeight(val id: String?, val name: String?, val kg: Int?, val lb: Int?)
+
+data class LandingLegs(
+    val number: Int? = null,
+    val material: String? = null
+)
+
+data class PayloadWeight(
+    val id: String? = null,
+    val name: String? = null,
+    val kg: Int? = null,
+    val lb: Int? = null
+)

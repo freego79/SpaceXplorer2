@@ -22,6 +22,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import cz.freego.tutorial.spacexplorer.Constants
@@ -104,7 +105,7 @@ fun HomeScreen(
                                 }
                             },
                             icon = { Icon(screen.icon, contentDescription = screen.title) },
-                            label = { Text(screen.title) }
+                            label = { Text(text = screen.title, maxLines = 1, overflow = TextOverflow.Ellipsis) }
                         )
                     }
                 }

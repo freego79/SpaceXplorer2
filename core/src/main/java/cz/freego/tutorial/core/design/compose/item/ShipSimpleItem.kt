@@ -23,17 +23,17 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
-import cz.freego.tutorial.core.data.model.RocketDto
+import cz.freego.tutorial.core.data.model.ShipDto
 import cz.freego.tutorial.core.design.theme.phone.SpaceXplorerTheme
 
 @Composable
-fun RocketSimpleItem(
+fun ShipSimpleItem(
     modifier: Modifier = Modifier,
-    rocket: RocketDto,
+    ship: ShipDto,
 ) {
     Card(
         modifier = modifier
-            .size(width = 150.dp, height = 200.dp)
+            .size(width = 250.dp, height = 200.dp)
             .padding(8.dp),
         elevation = CardDefaults.cardElevation(4.dp)
     ) {
@@ -49,17 +49,17 @@ fun RocketSimpleItem(
                     )
                 )
         ) {
-            rocket.flickrImages?.let {
-                if (it.isNotEmpty()) {
+            ship.image?.let {
+            if (it.isNotEmpty()) {
                     Image(
-                        painter = rememberAsyncImagePainter(it[0]),
-                        contentDescription = rocket.name,
+                        painter = rememberAsyncImagePainter(it),
+                        contentDescription = ship.name ?: "ship",
                         modifier = Modifier.fillMaxSize(),
                         contentScale = ContentScale.Crop,
                     )
                 }
             }
-            rocket.name?.let { name ->
+            ship.name?.let { name ->
                 Text(
                     text = name,
                     modifier = Modifier
@@ -80,12 +80,12 @@ fun RocketSimpleItem(
 
 @Preview
 @Composable
-private fun RocketSimpleItemPreview() {
+private fun ShipSimpleItemPreview() {
     SpaceXplorerTheme {
         Surface {
-            RocketSimpleItem(
-                rocket = RocketDto(
-                    name = "Falcon",
+            ShipSimpleItem(
+                ship = ShipDto(
+                    name = "Ship",
                     id = "001",
                 )
             )
