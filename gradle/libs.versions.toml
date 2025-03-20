@@ -2,7 +2,7 @@
 agp = "8.8.2"
 coilCompose = "2.1.0"
 converterMoshi = "2.9.0"
-hiltAndroid = "2.48"
+hiltAndroid = "2.49"
 hiltCompiler = "2.48"
 hiltNavigationCompose = "1.2.0"
 kotlin = "2.0.0"
@@ -23,6 +23,12 @@ navigationCompose = "2.9.0-alpha08"
 pagingCompose = "3.3.6"
 pagingRuntime = "3.3.6"
 retrofit = "2.9.0"
+
+playServicesWearable = "19.0.0"
+composeMaterial = "1.4.1"
+composeFoundation = "1.4.1"
+wearToolingPreview = "1.0.0"
+coreSplashscreen = "1.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -55,6 +61,12 @@ moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
 moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshiKotlin" }
 navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+
+play-services-wearable = { group = "com.google.android.gms", name = "play-services-wearable", version.ref = "playServicesWearable" }
+androidx-compose-material = { group = "androidx.wear.compose", name = "compose-material", version.ref = "composeMaterial" }
+androidx-compose-foundation = { group = "androidx.wear.compose", name = "compose-foundation", version.ref = "composeFoundation" }
+androidx-wear-tooling-preview = { group = "androidx.wear", name = "wear-tooling-preview", version.ref = "wearToolingPreview" }
+androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "coreSplashscreen" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
