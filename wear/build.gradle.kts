@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("dagger.hilt.android.plugin")
+    kotlin("kapt") // Nutné pro Hilt kompilátor
 }
 
 android {
@@ -50,7 +52,24 @@ dependencies {
     implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.wear.tooling.preview)
     implementation(libs.androidx.activity.compose)
+
     implementation(libs.androidx.core.splashscreen)
+
+    implementation(libs.navigation.compose)
+    implementation(libs.androidx.material3)
+
+    // Paging
+    implementation(libs.androidx.paging.compose)  // nebo poslední verze
+
+    // Dependency Injection - Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    // Hilt pro ViewModel v Jetpack Compose
+    implementation(libs.androidx.hilt.navigation.compose)
+
+    // Coil - pro načítání obrázků
+    implementation(libs.coil.compose)
+
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
